@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import SimpleStorage from "./contracts/SimpleStorage.json";
+import Learning from "./contracts/learning.json";
 import Web3 from "web3";
-import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
   const [state, setState] = useState({
@@ -15,9 +15,9 @@ function App() {
     async function template() {
       const web3 = new Web3(provider);
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = SimpleStorage.networks[networkId];
+      const deployedNetwork = Learning.networks[networkId];
       const contract = new web3.eth.Contract(
-        SimpleStorage.abi,
+        Learning.abi,
         deployedNetwork.address
       );
       console.log(contract);
@@ -25,36 +25,35 @@ function App() {
     }
     provider && template();
   }, []);
+
+
   useEffect(() => {
+    debugger
     const { contract } = state;
     async function readData() {
-      const data = await contract.methods.getter().call();
+      const data = await contract.methods.add().call();
+      console.log('result :- ', data);
       setData(data);
     }
     contract && readData();
   }, [state]);
-  async function writeData() {
-    const { contract } = state;
-    const data = document.querySelector("#value").value;
-    await contract.methods
-      .setter(data)
-      .send({ from: "0x1f4F90f9aA5779f2C1E190133C2c872944bDED1c" });
-    window.location.reload();
-  }
-  return (
-    <>
-      <h1>Welcome to Dapp</h1>
-      <div className="App">
-        <p className="text">Contract Data : {data}</p>
-        <div>
-          <input type="text" id="value" required="required"></input>
-        </div>
 
-        <button onClick={writeData} className="button button2">
-          Change Data
-        </button>
-      </div>
-    </>
+  useEffect(() => {
+    console.log(data);
+  },[data])
+  // async function writeData() {
+  //   const { contract } = state;
+  //   const data = document.querySelector("#value").value;
+  //   await contract.methods
+  //     .setter(data)
+  //     .send({ from: "0x1f4F90f9aA5779f2C1E190133C2c872944bDED1c" });
+  //   window.location.reload();
+  // }
+  return (
+    <div className="App">
+      {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
+      <Home />
+    </div>
   );
 }
 
