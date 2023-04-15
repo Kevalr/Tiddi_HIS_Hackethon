@@ -111,26 +111,26 @@ const Home = () => {
         <div className="shots-container">
           {typesOfShots.map((shot, index) => (
             <>
-              {/* <button class="p-2 lg:w-1/3 md:w-1/2 w-full"> */}
+              {/* <button className="p-2 lg:w-1/3 md:w-1/2 w-full"> */}
                 <div 
                 key={index}
-                  class="h-full flex items-center  border-gray-200 border p-4 rounded-lg"
+                  className="h-full flex items-center  border-gray-200 border p-4 rounded-lg"
                   onClick={() => handleShotSelect(shot)}
                 >
                   <img
                     alt="team"
-                    class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
+                    className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
                     src="https://dummyimage.com/80x80"
                   />
-                  <div class="flex-grow">
-                    <h2 class="text-white title-font font-medium">{shot}</h2>
+                  <div className="flex-grow">
+                    <h2 className="text-white title-font font-medium">{shot}</h2>
                   </div>
                 </div>
               {/* </button> */}
             </>
           ))}
           </div>
-          {/* <div className="shotTimeout-loader-container" style={{backgroundColor:'red', height:'10px', width:''}}> */}
+          {/* <div Name="shotTimeout-loader-container" style={{backgroundColor:'red', height:'10px', width:''}}> */}
           {
             //Width reducer function - start when ball displays
             //if timeout then add 0 to score and move to next ball
