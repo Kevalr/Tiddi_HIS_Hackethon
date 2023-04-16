@@ -27,32 +27,33 @@ function App() {
   }, []);
 
 
-  useEffect(() => {
-    debugger
-    const { contract } = state;
-    async function readData() {
-      const data = await contract.methods.add().call();
-      console.log('result :- ', data);
-      setData(data);
-    }
-    contract && readData();
-  }, [state]);
+  // useEffect(() => {
+  //   debugger
+  //   const { contract } = state;
+  //   async function readData() {
+  //     const data = await contract.methods.add().call();
+  //     console.log('result :- ', data);
+  //     setData(data);
+  //   }
+  //   contract && readData();
+  // }, [state]);
 
-  useEffect(() => {
-    console.log(data);
-  },[data])
+  // useEffect(() => {
+  //   console.log(data);
+  // },[data])
   // async function writeData() {
   //   const { contract } = state;
   //   const data = document.querySelector("#value").value;
   //   await contract.methods
-  //     .setter(data)
-  //     .send({ from: "0x1f4F90f9aA5779f2C1E190133C2c872944bDED1c" });
+  //     .setter('data')
+  //     .send({ from: "0xD5a11612585386E043727bc4bF67BA10221ef02F" });
   //   window.location.reload();
   // }
   return (
     <div className="App">
-      {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
       <Home />
+      {/* <input type='text' value={data} onChange={(e) => setData(e.target.value)} />
+      <button onClick={writeData} className="bg-black"></button> */}
     </div>
   );
 }

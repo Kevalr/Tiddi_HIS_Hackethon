@@ -3,20 +3,7 @@ import React from "react";
 const Scorecard = ({ score, over, target }) => {
   return (
     <div>
-      {/* <p>
-        {score.runs}-{score.wicket}
-      </p>
-      <p>Target: {target}</p>
-      <p>
-        {score.overNumber}.{over.length}
-      </p>
-      <p>
-        {over.map((ball, index) => {
-          return <span key={index}> {ball} </span>;
-        })}
-      </p> */}
-
-      <div className="container   px-20 -mr-20 mb-0 border-white border-r-2 border-l-2 border-t-2 backdrop-brightness-0">
+      <div className="bg-gray-900 container px-20 -mr-20 mb-0 border-white border-t-gray-50 border-t ">
         <div className="flex flex-wrap  text-center">
           <div className="p-4 sm:w-1/6 w-1/6 border-white border-r-2 items-center">
             <h2 className="title-font font-medium sm:text-4xl text-3xl text-white text-center">
